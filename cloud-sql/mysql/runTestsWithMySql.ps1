@@ -30,10 +30,6 @@ $proxy = Start-Job -ArgumentList (Get-Location) -ScriptBlock {
 }
 
 try {
-	$env:DB_HOST="cloudsql"
-	$env:DB_USER="aspnetuser"
-	$env:DB_PASS=""
-	$env:DB_NAME="votes"
 	dotnet restore
 	Receive-Job $proxy -ErrorAction 'SilentlyContinue'
 	{
