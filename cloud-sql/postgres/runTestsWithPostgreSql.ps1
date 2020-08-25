@@ -35,10 +35,10 @@ try {
 	$env:DB_PASS=$env:TEST_CLOUDSQL2_VOTES_PASS
 	$env:DB_NAME=$env:TEST_CLOUDSQL2_VOTES_NAME
 	dotnet restore
-	Receive-Job $proxy -ErrorAction 'SilentlyContinue'
+	Receive-Job $proxy -ErrorAction 'Continue'
 	{
 		dotnet build
-		Receive-Job $proxy -ErrorAction 'SilentlyContinue'
+		Receive-Job $proxy -ErrorAction 'Continue'
 		try {
 			Run-KestrelTest 5567 -CasperJs11
 		} finally {
