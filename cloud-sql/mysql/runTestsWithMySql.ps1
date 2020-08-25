@@ -47,6 +47,6 @@ try {
 	}
 } finally {
 	Stop-Job $proxy
-	Receive-Job $proxy -ErrorAction 'SilentlyContinue'
+	Receive-Job $proxy -ErrorAction 'Continue'
 	Remove-Job $proxy
 }
